@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cargo_docente', function (Blueprint $table) {
+        Schema::create('cargo_docentes', function (Blueprint $table) {
             $table->id();
             $table->string('numero_control',45);
             $table->enum('sexo', array('Titular', 'Interino', 'Suplente'));
@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreign('docente_id')->references('id')->on('docentes');
             $table->unsignedBigInteger('cargo_id');
             $table->foreign('cargo_id')->references('id')->on('cargos');
-            $table->unsignedBigInteger('establecimiento_id');
-            $table->foreign('establecimiento_id')->references('id')->on('establecimientos');
+            $table->unsignedBigInteger('nivel_has_establecimiento_id');
+            $table->foreign('nivel_has_establecimiento_id')->references('id')->on('nivel_has_establecimientos');
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cargo_docente');
+        Schema::dropIfExists('cargo_docentes');
     }
 };
