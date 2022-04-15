@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('documento',24);
             $table->string('apellido', 45);
-            $table->string('nombres', 45);
+            $table->string('nombres', 75);
             $table->enum('sexo', array('F','M'));
             $table->date('fecha_nacimiento');
             $table->string('domicilio',255);
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('departamento',45);
             $table->string('telefono', 45);
             $table->string('celular', 45);
-            $table->string('correo',255);
+            $table->string('correo',75);
         });
     }
 
