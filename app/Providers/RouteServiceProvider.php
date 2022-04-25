@@ -17,7 +17,11 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+<<<<<<< Updated upstream
     public const HOME = '/home';
+=======
+    public const HOME = '/layouts/home';
+>>>>>>> Stashed changes
 
     /**
      * Define your route model bindings, pattern filters, etc.
