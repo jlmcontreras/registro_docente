@@ -4,10 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
         <title>Sistema de registro docentes</title>
 
         <!-- Fonts -->
@@ -29,15 +26,10 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-<<<<<<< Updated upstream
-                        <a href="{{ url('/layouts/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-=======
                         <a href="{{ url('/layouts/home') }}"
                            class="text text-gray-700 dark:text-white underline">Home</a>
-
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                              class="dark:text-white"
                                              onclick="event.preventDefault();
@@ -45,7 +37,6 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
->>>>>>> Stashed changes
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-white underline">Log in</a>
 
@@ -57,15 +48,8 @@
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 ">
-<<<<<<< Updated upstream
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <h1 class="dark:text-white">
-=======
-                <!-- flex justify-center pt-8 sm:justify-start sm:pt-0 -->
-
                 <div class="text-center">
                     <h1 class="dark:text-white ">
->>>>>>> Stashed changes
                         Sistema de registro docente
                     </h1>
                 </div>
