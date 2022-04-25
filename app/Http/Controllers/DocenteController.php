@@ -122,6 +122,8 @@ class DocenteController extends Controller
     public function show(Docente $docente)
     {
         //
+        $docente = Docente::find($id);
+        return view('docente.docente_show', compact('docente'));
     }
 
     /**
