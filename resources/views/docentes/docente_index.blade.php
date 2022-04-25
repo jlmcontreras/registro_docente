@@ -19,13 +19,8 @@
         </thead>
         <tbody>
         @foreach($docentes as $docente)
-<<<<<<< Updated upstream
             <tr class="text-center">
                 <th scope="row">{{  $docente->persona->documento}}</th>
-=======
-            <tr class="text-center  ">
-                <th class="fst-normal" scope="row">{{  $docente->persona->documento}}</th>
->>>>>>> Stashed changes
                 <th scope="row">{{ $docente->persona->apellido   }}</th>
                 <th scope="row">{{ $docente->persona->nombres   }}</th>
                 <th scope="row">{{ $docente->titulo   }}</th>
@@ -49,10 +44,8 @@
         @endforeach
         </tbody>
     </table>
-<<<<<<< Updated upstream
 
-=======
     {{$docentes->links()}}
->>>>>>> Stashed changes
+
 @endsection
 
