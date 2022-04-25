@@ -14,6 +14,7 @@ class DocenteController extends Controller
     /**
      * Display a listing of the resource.
      *
+<<<<<<< Updated upstream
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -22,6 +23,16 @@ class DocenteController extends Controller
         $docentes = Docente::all();
         return view('docentes.docente_index2', compact('docentes'));
      //  return redirect()->route('docente.index', compact('docentes'));
+=======
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function index()
+    {
+       $docentes = Docente::paginate(10);
+        //$docentes= DB::table('docentes')->paginate(15);
+     //  return view('docentes.docente_index2', compact('docentes'));
+      return view('docentes.docente_index', compact('docentes'));
+>>>>>>> Stashed changes
     }
 
     /**
@@ -58,6 +69,7 @@ class DocenteController extends Controller
             'correo' => 'nullable|email|max:75',
             'titulo' => 'required|string|max:45',
         ]);
+<<<<<<< Updated upstream
 /**
         try {
             DB::beginTransaction();
@@ -77,12 +89,44 @@ class DocenteController extends Controller
             }
 
             if (DB::table('docente')->where('persona_id', $persona->id)->doesntExist()) {
+=======
+
+        try {
+            DB::beginTransaction();
+
+            //se verifica si la persona existe en la BD
+            if (DB::table('personas')->where('documento', $request->documento)->exists()) {
+                // Se verifica si el docente existe en la bd
+                if (DB::table('docentes')->where('persona_id', $persona->id)->doesntExist()) {
+                    // La persona existe por lo tanto se actualiza el registro
+                    $persona = new Persona($request->all());
+                    $persona->update();
+
+                    // Se genera el Alta del Docente
+                    $docente = new Docente();
+                    $docente->persona_id = $persona->id;
+                    $docente->titulo = $request->titulo;
+                    $docente->save();
+                }
+                else
+                {
+                    return redirect()->route('docente.create')
+                        ->with('warning', "El Docente ya existe");
+                }
+            }
+            else{
+                //La persona no existe -> Se genera el Alta de la Persona
+                $persona = new Persona($request->all());
+                $persona->save();
+
+>>>>>>> Stashed changes
                 // Se genera el Alta del Docente
                 $docente = new Docente();
                 $docente->persona_id = $persona->id;
                 $docente->titulo = $request->titulo;
                 $docente->save();
             }
+<<<<<<< Updated upstream
             else
             {
                 return redirect()->route('docente.create')
@@ -91,10 +135,16 @@ class DocenteController extends Controller
 
             return redirect()->route('docente.index')
                 ->with('success', "Docente creado correctamente");
+=======
+            return redirect()->route('docente.index')
+                ->with('success', "Docente creado correctamente");
+
+>>>>>>> Stashed changes
         } catch (\Exception $e) {
             DB::rollBack();
             if ($e->getCode() == 23000) {
                 return redirect()->route('docente.index')
+<<<<<<< Updated upstream
                     ->with('danger', "El Empleado no ha sido Creado");
             }
             return redirect()->route('docente.index')
@@ -104,6 +154,18 @@ class DocenteController extends Controller
     //  DB::transaction(function () {
             $persona = new Persona($request->all());
            // dd('Hola mundo');
+=======
+                    ->with('danger', "El Docente no fue creado");
+            }
+            return redirect()->route('docente.index')
+                ->with('danger', "El Docente no fue creado, " . $e->getMessage());
+        }
+
+
+
+    /** DB::transaction(function () {
+            $persona = new Persona($request->all());
+>>>>>>> Stashed changes
             $persona->save();
 
             $docente = new Docente();
@@ -113,8 +175,13 @@ class DocenteController extends Controller
 
             return redirect()->route('docente.index')
                 ->with('success', "Docente creado correctamente");
+<<<<<<< Updated upstream
    //     });
 
+=======
+      });
+**/
+>>>>>>> Stashed changes
     }
 
 
@@ -129,9 +196,18 @@ class DocenteController extends Controller
      * @param  \App\Models\Docente  $docente
      * @return \Illuminate\Http\Response
      */
+<<<<<<< Updated upstream
     public function edit(Docente $docente)
     {
         //
+=======
+    public function edit($id)
+    {
+        //
+        $docente = Docente::find($id);
+
+        return view('docentes.docente_edit', compact('docente'));
+>>>>>>> Stashed changes
     }
 
     /**
