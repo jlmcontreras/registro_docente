@@ -7,9 +7,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+<<<<<<< Updated upstream
     <title>Sistema de registro docentes</title>
 
     <style>
+=======
+    <title >Sistema de registro docentes</title>
+
+   {{-- <style>
+>>>>>>> Stashed changes
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
         html {
             line-height: 1.15;
@@ -398,6 +404,7 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
+<<<<<<< Updated upstream
     </style>
 
 </head>
@@ -408,6 +415,50 @@
             @auth
                 <a href="{{ url('/layouts/home') }}"
                    class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+=======
+    </style>--}}
+
+</head>
+<body class="antialiased">
+
+<div class="">
+    {{--<div>
+    @if (Route::has('login'))
+        <div class="text-end px-6 py-4 sm:block">
+            @auth
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{auth()->user()->email}}
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url('/layouts/home') }}">Home</a></li>
+                            <li><a class="dropdown-item" href="/">Dashboard</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('logout')"
+                                                     onclick="event.preventDefault();
+                                                this.closest('form').submit();" >
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form></li>
+                        </ul>
+                    </div>
+                --}}{{--<a href="{{ url('/layouts/home') }}"
+                   class="text-start text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            <br>
+                <a href="{{ url('/') }}"
+                   class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-dropdown-link :href="route('logout')"
+                                     onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>--}}{{--
+>>>>>>> Stashed changes
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-white underline">Log in</a>
 
@@ -417,15 +468,26 @@
             @endauth
         </div>
     @endif
+<<<<<<< Updated upstream
 
     <div class="">
         <div class="">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
+=======
+    </div>--}}
+    <div class="">
+        <div class="">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" >
+>>>>>>> Stashed changes
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
+<<<<<<< Updated upstream
                                 <a class="nav-link active" aria-current="page" href="/">Home</a>
+=======
+                                <a class="nav-link active" aria-current="page" href="/layouts/home">Home</a>
+>>>>>>> Stashed changes
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Establecimientos</a>
@@ -443,6 +505,55 @@
                                 <a class="nav-link active" aria-current="page" href="#">Asignar cargos</a>
                             </li>
                         </ul>
+<<<<<<< Updated upstream
+=======
+                        <div>
+                            @if (Route::has('login'))
+                                <div class="text-end sm:block ">
+                                    @auth
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{auth()->user()->email}}
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="{{ url('/layouts/home') }}">Home</a></li>
+                                                <li><a class="dropdown-item" href="/">Dashboard</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><form method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+                                                        <x-dropdown-link :href="route('logout')"
+                                                                         onclick="event.preventDefault();
+                                                this.closest('form').submit();" >
+                                                            {{ __('Log Out') }}
+                                                        </x-dropdown-link>
+                                                    </form></li>
+                                            </ul>
+                                        </div>
+                                        {{--<a href="{{ url('/layouts/home') }}"
+                                           class="text-start text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                                    <br>
+                                        <a href="{{ url('/') }}"
+                                           class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+
+                                            <x-dropdown-link :href="route('logout')"
+                                                             onclick="event.preventDefault();
+                                                                        this.closest('form').submit();">
+                                                {{ __('Log Out') }}
+                                            </x-dropdown-link>
+                                        </form>--}}
+                                    @else
+                                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-white underline">Log in</a>
+
+                                        @if (Route::has('register'))
+                                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-white underline">Register</a>
+                                        @endif
+                                    @endauth
+                                </div>
+                            @endif
+                        </div>
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </nav>
@@ -451,6 +562,7 @@
         <div class="container">
             <br>
             <div>
+<<<<<<< Updated upstream
                 <x-alert/>
             </div>
 
@@ -460,6 +572,12 @@
         </div>
 
 
+=======
+                @yield('flash')
+            </div>
+            @yield('content')
+        </div>
+>>>>>>> Stashed changes
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
