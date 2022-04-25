@@ -12,11 +12,27 @@
 </head>
 <body>
 <h1>Hello, world!</h1>
+<<<<<<< Updated upstream
+=======
+<div>
+    @yield('flash')
+</div>
+
+<div>
+    @if (session()->get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session()->get('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+</div>
+>>>>>>> Stashed changes
 <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
     <a class="btn  btn-primary active" href="{{ route('docente.create') }}" type="button">
         Nuevo Docente
     </a>
 </div>
+<<<<<<< Updated upstream
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -26,6 +42,9 @@
         </ul>
     </div>
 @endif
+=======
+
+>>>>>>> Stashed changes
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
