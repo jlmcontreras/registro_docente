@@ -18,13 +18,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< Updated upstream
+=======
+//si hay cambios en esta ruta modificar la constante en RouteServiceProvider
+>>>>>>> Stashed changes
 Route::get('/layouts/home', function () {
     return view('layouts.home');
 })->middleware(['auth'])->name('home');
 
 
 
+<<<<<<< Updated upstream
 Route::get('docente/index', [DocenteController::class, 'index'])->name('docente.index')->middleware(['auth']);
+=======
+Route::get('docente/index', [DocenteController::class,'index'])->name('docente.index')->middleware(['auth']);
+>>>>>>> Stashed changes
 
 Route::get('docente/create', [DocenteController::class,'create'])->name('docente.create')->middleware(['auth']);
 Route::post('docente/store',[ DocenteController::class,'store'])->name('docente.store')->middleware(['auth']);
