@@ -19,9 +19,8 @@ class Persona extends Model
     public $timestamps = false;
 
     public function docentes(){
-        return $this->hasMany(Docente::class,'id');
+        return $this->hasMany(Docente::class);
     }
-
 
     public function toSearchableArray()
     {

@@ -19,7 +19,7 @@ class Docente extends Model
 
     public function persona()
     {
-        return $this->belongsTo(Persona::class,'id');
+        return $this->belongsTo(Persona::class);
     }
 
     public function toSearchableArray()
