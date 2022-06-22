@@ -48,6 +48,9 @@
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 ">
+                <div>
+                    <img src=" https://www.codewars.com/users/manoc/badges/large" alt="Kiu" class="align-middle">
+                </div>
                 <div class="text-center">
                     <h1 class="dark:text-white ">
                         Sistema de registro docente
