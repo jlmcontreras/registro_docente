@@ -5,6 +5,10 @@
         <a class="btn  btn-primary active" href="{{ route('docente.create') }}" type="button">
             Nuevo Docente
         </a>
+        <form class="d-flex" role="search" action="{{route('docente.index')}}" method="get">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
     </div>
     <br>
     <table class="table table-responsive table-sm table-bordered">

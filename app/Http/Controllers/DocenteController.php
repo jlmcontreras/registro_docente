@@ -16,19 +16,32 @@ class DocenteController extends Controller
      * Display a listing of the resource.
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(Request  $request)
     {
-        $docentes = Docente::paginate(10);
+       // $docentes = Docente::paginate(10);
         //$docentes= DB::table('docentes')->paginate(15);
         //  return view('docentes.docente_index2', compact('docentes'));
+        $search= $request->get('search');
+        $docentes = Docente::search($search)->paginate(10);;
         return view('docentes.docente_index', compact('docentes'));
 
     }
 
     public function search(Request  $request)
     {
-        $data= index('docentes')->search('$request.search')::paginate(10);
-        return view('docentes.docente_index', compact('data'));
+
+       // $data= Docente::paginate(10);
+      // $filter=  $data->index('docentes')->search('$request.search')::paginate(10);
+       // return view('docentes.docente_index', compact('data'));
+       /* $docentes = Docente::paginate(10);
+        $search= $request->get('search');
+        var_dump($search);
+        exit();*/
+        $docentes = Docente::search($search)->paginate(10);;
+
+       // return response()->json($docentes);
+
+        return view('docentes.docente_index', compact('docentes'));
     }
 
     /**
