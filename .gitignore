@@ -34,3 +34,5 @@ package.json
 package-lock.json
 composer.lock
 composer.json
+*.json
+package.json
