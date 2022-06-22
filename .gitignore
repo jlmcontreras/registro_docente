@@ -12,3 +12,10 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+*.json
+meilisearch
+package-lock.json
+package.json
+data.ms/VERSION
+composer.json
+composer.json
