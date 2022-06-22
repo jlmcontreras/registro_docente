@@ -26,6 +26,7 @@ class Docente extends Model
     {
         return
             [
+                'documento' => $this->persona->documento,
                 'apellido' => $this->persona->apellido,
                 'nombres' => $this->persona->nombres,
                 'domicilio' => $this->persona->domicilio,
