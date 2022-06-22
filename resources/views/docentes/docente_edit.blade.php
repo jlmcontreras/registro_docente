@@ -116,6 +116,16 @@
                 @enderror
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="tituloDocente">Titulo</label>
+                <input type="text" class="form-control" name="titulo" id="tituloDocente"
+                       value="@if(old('titulo')){{ old('titulo') }}@else{{ $docente->titulo }}@endif">
+                @error('titulo')
+                <span class="badge badge-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
         <br>
         <div class="">
         <button class="btn btn-icon btn-3 btn-success" type="submit">
