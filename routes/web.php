@@ -27,6 +27,7 @@ Route::get('/layouts/home', function () {
 
 
 Route::get('docente/index', [DocenteController::class, 'index'])->name('docente.index')->middleware(['auth']);
+Route::get('docente/search', [DocenteController::class, 'search'])->name('docente.search')->middleware(['auth']);
 Route::get('docente/create', [DocenteController::class,'create'])->name('docente.create')->middleware(['auth']);
 Route::post('docente/store',[ DocenteController::class,'store'])->name('docente.store')->middleware(['auth']);
 Route::get('docente/{id}/show', [DocenteController::class,'show'])->name('docente.show')->middleware(['auth']);
