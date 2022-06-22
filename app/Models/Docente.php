@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Docente extends Model
 {
     use HasFactory;
+    use Searchable;
 
     protected $fillable = [
         'titulo',
@@ -17,6 +19,19 @@ class Docente extends Model
 
     public function persona()
     {
-        return $this->belongsTo(Persona::class);
+        return $this->belongsTo(Persona::class,'id');
+    }
+
+    public function toSearchableArray()
+    {
+        return
+            [
+                'apellido' => $this->persona->apellido,
+                'nombres' => $this->persona->nombres,
+                'domicilio' => $this->persona->domicilio,
+                'titulo' => $this->titulo
+            ]
+
+            ;
     }
 }
