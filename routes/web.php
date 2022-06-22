@@ -36,5 +36,15 @@ Route::get('docente/{id}/confirm', [DocenteController::class,'confirm'])->name('
 Route::get('docente/{id}/edit', [DocenteController::class,'edit'])->name('docente.edit')->middleware(['auth']);
 Route::put('docente/{id}/update', [DocenteController::class,'update'])->name('docente.update')->middleware(['auth']);
 
+Route::get('establecimiento/index', [EstablecimientoController::class, 'index'])->name('establecimiento.index')->middleware(['auth']);
+Route::get('establecimiento/search', [EstablecimientoController::class, 'search'])->name('establecimiento.search')->middleware(['auth']);
+Route::get('establecimiento/create', [EstablecimientoController::class,'create'])->name('establecimiento.create')->middleware(['auth']);
+Route::post('establecimiento/store',[ EstablecimientoController::class,'store'])->name('establecimiento.store')->middleware(['auth']);
+Route::get('establecimiento/{id}/show', [EstablecimientoController::class,'show'])->name('establecimiento.show')->middleware(['auth']);
+Route::delete('establecimiento/{id}/destroy', [EstablecimientoController::class,'destroy'])->name('establecimiento.destroy')->middleware(['auth']);
+Route::get('establecimiento/{id}/confirm', [EstablecimientoController::class,'confirm'])->name('establecimiento.confirm')->middleware(['auth']);
+Route::get('establecimiento/{id}/edit', [EstablecimientoController::class,'edit'])->name('establecimiento.edit')->middleware(['auth']);
+Route::put('establecimiento/{id}/update', [EstablecimientoController::class,'update'])->name('establecimiento.update')->middleware(['auth']);
+
 
 require __DIR__.'/auth.php';
