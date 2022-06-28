@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Docente;
 use App\Models\Persona;
 
-use http\Env\Response;
+
+use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,11 +38,11 @@ class DocenteController extends Controller
         $search= $request->get('search');
         var_dump($search);
         exit();*/
-        $docentes = Docente::search($search)->paginate(10);;
+        //$docentes = Docente::search($search)->paginate(10);;
 
        // return response()->json($docentes);
 
-        return view('docentes.docente_index', compact('docentes'));
+       // return view('docentes.docente_index', compact('docentes'));
     }
 
     /**
