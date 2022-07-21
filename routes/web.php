@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DocenteController;
+use App\Http\Controllers\EstablecimientoController;
 use Illuminate\Support\Facades\Route;
 
 /*
