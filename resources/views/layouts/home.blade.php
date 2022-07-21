@@ -423,7 +423,7 @@
                                 <a class="nav-link active" aria-current="page" href="/layouts/home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Establecimientos</a>
+                                <a class="nav-link active" aria-current="page" href="{{route('establecimiento.index')}}">Establecimientos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Niveles</a>
