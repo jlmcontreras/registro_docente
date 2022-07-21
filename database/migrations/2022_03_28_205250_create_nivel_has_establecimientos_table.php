@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('establecimiento_id')->references('id')->on('establecimientos');
             $table->unsignedBigInteger('nivel_id');
             $table->foreign('nivel_id')->references('id')->on('niveles');
+            $table->string('turno', 45);
         });
     }
 
