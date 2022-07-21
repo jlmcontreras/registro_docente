@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nombre',255);
             $table->string('modalidad', 45);
             $table->enum('zona', array('1','2','3','4'));
-            $table->string('turno', 45);
             $table->string('domicilio',255);
             $table->string('localidad',45);
             $table->string('departamento',45);
