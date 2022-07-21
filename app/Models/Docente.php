@@ -32,7 +32,6 @@ class Docente extends Model
                 'domicilio' => $this->persona->domicilio,
                 'titulo' => $this->titulo
             ]
-
             ;
     }
 }
