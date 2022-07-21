@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Establecimiento;
-use App\Models\Persona;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,9 +19,18 @@ class EstablecimientoController extends Controller
     public function index(Request  $request)
     {
         //
+         //$establecimientos = Establecimiento::paginate(10);
+       /* $establecimientos= DB::table('establecimientos')->paginate(10);
+          return view('establecimientos.establecimiento_index', compact('establecimientos'));*/
         $search= $request->get('search');
-        $establecimientos = Establecimiento::search($search)->paginate(10);;
+        if($search == null) {
+            $establecimientos = DB::table('establecimientos')->paginate(10);
+        }
+        else{
+            $establecimientos = Establecimiento::search($search)->paginate(10);
+        }
         return view('establecimientos.establecimiento_index', compact('establecimientos'));
+
     }
 
     /**
@@ -45,8 +53,9 @@ class EstablecimientoController extends Controller
     public function store(Request $request)
     {
         //
+
         $request->validate([
-            'nombres' => 'required|string|max:255',
+            'nombre' => 'required|string|max:255',
             'modalidad' => 'required|string|max:45',
             'zona' => ['required', Rule::in('1','2','3','4')],
             'turno' => 'required|string|max:45',
@@ -58,10 +67,26 @@ class EstablecimientoController extends Controller
             'correo' => 'nullable|email|max:75',
 
         ]);
+
         try {
             DB::beginTransaction();
                 $establecimiento = new Establecimiento($request->all());
                 $establecimiento->save();
+            $establecimiento->niveles()->attach($nivel_id);
+            if($request->get('nivelPrimario')== 'true')
+            {
+                $establecimiento->niveles()->attach($request->get('nivelPrimario'));
+            }
+            if($request->get('nivelSecundario')== 'true')
+            {
+                $establecimiento->niveles()->attach($request->get('nivelSecundario'));
+            }
+            if($request->get('nivelTerciario')== 'true')
+            {
+                $establecimiento->niveles()->attach($request->get('nivelTerciario'));
+            }
+
+
                 DB::commit();
                 return redirect()->route('establecimiento.index')
                     ->with('success', "Establecimiento creado correctamente");
